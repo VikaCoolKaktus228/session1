@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Net;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -13,22 +12,27 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
-using session1.auth_reg;
 
-namespace session1
+namespace session1.auth_reg
 {
     /// <summary>
-    /// Логика взаимодействия для MainWindow.xaml
+    /// Логика взаимодействия для authorization.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class authorization : Page
     {
-        public MainWindow()
+        public authorization()
         {
             InitializeComponent();
-            AppConect.agentmod = new Entities();
-            AppFrame.agentframe = agentframe;
+        }
 
-            agentframe.Navigate(new authorization());
+        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        {
+
+        }
+
+        private void regbtn_Click(object sender, RoutedEventArgs e)
+        {
+            AppFrame.agentframe.Navigate(new registration());
         }
     }
 }

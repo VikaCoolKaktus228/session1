@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:session1"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
-    <Grid Background="#FFFFF7C2">
-        <Frame x:Name="Frame" Content="Frame" Height="NaN" Margin="0,25,0,0"/>
+        Title="Agents" Height="450" Width="800">
+    <Grid Background="#FF543124">
+        <Frame x:Name="agentframe" Content="" Height="NaN" Margin="0,25,0,0"/>
 
     </Grid>
 </Window>
