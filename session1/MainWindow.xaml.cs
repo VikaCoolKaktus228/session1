@@ -25,7 +25,7 @@ namespace session1
         public MainWindow()
         {
             InitializeComponent();
-            AppConect.agentmod = new Entities();
+            AppConect.agentmod = new Entities1();
             AppFrame.agentframe = agentframe;
 
             agentframe.Navigate(new authorization());

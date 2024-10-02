@@ -15,13 +15,21 @@ namespace session1
     using System.Data.Entity.Core.Objects;
     using System.Linq;
     
-    public partial class Entities : DbContext
+    public partial class Entities1 : DbContext
     {
-        public Entities()
-            : base("name=Entities")
+        private static Entities1 _context;
+        public Entities1()
+            : base("name=Entities1")
         {
         }
-    
+
+        public static Entities1 GetContext()
+        {
+            if (_context == null)
+                _context = new Entities1();
+            return _context;
+        }
+
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
             throw new UnintentionalCodeFirstException();
@@ -34,11 +42,11 @@ namespace session1
         public virtual DbSet<ProductCostHistory> ProductCostHistory { get; set; }
         public virtual DbSet<ProductSale> ProductSale { get; set; }
         public virtual DbSet<ProductType> ProductType { get; set; }
+        public virtual DbSet<Role> Role { get; set; }
         public virtual DbSet<Shop> Shop { get; set; }
         public virtual DbSet<Supplier> Supplier { get; set; }
         public virtual DbSet<sysdiagrams> sysdiagrams { get; set; }
         public virtual DbSet<Users> Users { get; set; }
-        public virtual DbSet<Role> Role { get; set; }
     
         public virtual int sp_alterdiagram(string diagramname, Nullable<int> owner_id, Nullable<int> version, byte[] definition)
         {

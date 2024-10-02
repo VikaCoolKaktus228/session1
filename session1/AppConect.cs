@@ -8,6 +8,6 @@ namespace session1
 {
     internal class AppConect
     {
-        public static Entities agentmod;
+        public static Entities1 agentmod;
     }
 }
