@@ -9,31 +9,45 @@
       Title="agents">
 
     <Grid Background="#FF796153">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="224*"/>
+            <ColumnDefinition Width="577*"/>
+        </Grid.ColumnDefinitions>
         <Grid.RowDefinitions>
             <RowDefinition Height="0"/>
             <RowDefinition Height="70"/>
             <RowDefinition Height="510"/>
         </Grid.RowDefinitions>
 
-        <ListView Grid.Row="2" Margin="0,10,0,131">
-            <Grid>
-                <Grid.ColumnDefinitions>
-                <ColumnDefinition Width="200"></ColumnDefinition>
-                <ColumnDefinition Width="470"></ColumnDefinition>
-                <ColumnDefinition Width="40"></ColumnDefinition>
-            </Grid.ColumnDefinitions>
-                <StackPanel Grid.Column="0">
-                    <Image Height="100" Width="100"/>
-                </StackPanel>
-                <StackPanel Grid.Column="1">
-                    <TextBlock> <Run Text="{Binding AgentType.Title}"/> <Run Text="|"/> <Run Text="{Binding Title}"/></TextBlock>
-                    <TextBlock> <Run Text="{Binding Phone}"></Run></TextBlock>
-                </StackPanel>
-                <StackPanel Grid.Column="2">
-                    <TextBlock><Run Text="10%"/></TextBlock>
-                </StackPanel>
-                
-            </Grid>
+        <ListView x:Name="listagents" Grid.Row="2" Margin="0,10,0,131" d:ItemsSource="{d:SampleData ItemCount=5}" Grid.ColumnSpan="2">
+            <ListView.ItemTemplate>
+                <DataTemplate>
+                    <Grid>
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="200"></ColumnDefinition>
+                            <ColumnDefinition Width="470"></ColumnDefinition>
+                            <ColumnDefinition Width="40"></ColumnDefinition>
+                        </Grid.ColumnDefinitions>
+                        <StackPanel Grid.Column="0">
+                            <Image Source="{Binding CurrentPhoto}" Height="118" Width="173"/>
+                        </StackPanel>
+                        <StackPanel Grid.Column="1">
+                            <TextBlock> <Run Text="{Binding AgentType.Title}"/> <Run Text="|"/> <Run Text="{Binding Title}"/></TextBlock>
+                            <TextBlock> <Run Text="10 продаж за год"></Run></TextBlock>
+                            <TextBlock> <Run Text="{Binding Phone}"></Run></TextBlock>
+                            <TextBlock> <Run Text="Приоритетность: "/><Run Text="{Binding Priority}"></Run></TextBlock>
+                        </StackPanel>
+                        <StackPanel Grid.Column="2">
+                            <TextBlock><Run Text="10%"/></TextBlock>
+                        </StackPanel>
+
+                    </Grid>
+                </DataTemplate>
+            </ListView.ItemTemplate>
         </ListView>
+        <ComboBox x:Name="Combosort" HorizontalAlignment="Left" Grid.Row="1" VerticalAlignment="Top" Width="120" Text="" Grid.Column="1" RenderTransformOrigin="0.512,0.434" Margin="10,38,0,0" SelectionChanged="Combosort_SelectionChanged"/>
+
+        <ComboBox x:Name="Combofilter" HorizontalAlignment="Left" Margin="158,38,0,0" Grid.RowSpan="2" VerticalAlignment="Top" Width="120" Grid.Column="1" SelectionChanged="Combofilter_SelectionChanged"/>
+        <TextBox x:Name="searctb" HorizontalAlignment="Left" Margin="10,35,0,0" Grid.RowSpan="2" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Height="25" KeyDown="searctb_KeyDown"/>
     </Grid>
 </Page>

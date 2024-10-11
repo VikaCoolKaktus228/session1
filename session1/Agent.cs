@@ -40,11 +40,11 @@ namespace session1
             {
                 if (string.IsNullOrEmpty(Logo) || String.IsNullOrWhiteSpace(Logo))
                 {
-                    return "/agents/nnn.jpg";
+                    return "/agents/nn.jpg";
                 }
                 else
                 {
-                    return "/agents/" + Logo;
+                    return Logo;
                 }
             }
         }

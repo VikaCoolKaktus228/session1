@@ -40,14 +40,14 @@ namespace session1.auth_reg
         {
             try
             {
-                var password = AppConect.agentmod.Users.FirstOrDefault(x => x.Password == passtb.Password);
+                var password = AppConect.agentmod.Users.FirstOrDefault(x => x.password == passtb.Password);
                 if (password == null)
                 {
                     MessageBox.Show("неверный пароль",
                     "Ошибка", MessageBoxButton.OK, MessageBoxImage.Information);
                     return;
                 }
-                var user = AppConect.agentmod.Users.FirstOrDefault(x => x.Login == logintb.Text && x.Password == passtb.Password);
+                var user = AppConect.agentmod.Users.FirstOrDefault(x => x.login == logintb.Text && x.password == passtb.Password);
                 if (user == null)
                 {
                     MessageBox.Show("Такого пользователя не существует",
@@ -62,12 +62,12 @@ namespace session1.auth_reg
                         case 1:
                             MessageBox.Show("здраствйте админ",
                     "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.BakeryFrame.Navigate(new agents());
+                            AppFrame.agentframe.Navigate(new agents());
                             break;
                         case 2:
                             MessageBox.Show("здраствйте пользователь",
                     "уведомление", MessageBoxButton.OK, MessageBoxImage.Information);
-                            AppFrame.BakeryFrame.Navigate(new agents());
+                            AppFrame.agentframe.Navigate(new agents());
                             break;
                         default:
                             MessageBox.Show("данные не обнаружены!",
